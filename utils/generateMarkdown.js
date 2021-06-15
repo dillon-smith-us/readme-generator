@@ -1,20 +1,93 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function generateMarkdown(userResponses, userInfo) {
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+  let draftTable = `## Table of Contents`;
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+  if (userResponses.installation !== '') { draftTable += `[Installation](#installation)` };
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+  if (userResponses.usage !== '') { draftTable += `[Usage](#usage)` };
 
-`;
+  if (userResponses.contributing !== '') { draftTable += `[Contributing](#contributing)` };
+
+  if (userResponses.tests !== '') { draftTable += `[tests](#tests)` };
+
+  // create title and description
+  //generate badges
+  let draftReadMe = 
+  `# ${userResponses.title}
+  ![badge](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repository}?style=flat&logo=appveyor)
+  
+  
+  ## DESCRIPTION 
+  
+  ${userResponses.description}`
+
+  draftReadMe += draftTable;
+
+  draftReadMe += `
+  * [license](#license)`;
+
+  if (userResponses.installation !== '') {
+
+    draftReadMe +=`
+    
+    ## INSTALLATION 
+    
+    ${userResponses.installation}`
+  };
+
+  if (userResponses.usage !== '') {
+
+    draftReadMe +=`
+    
+    ##USAGE
+    
+    ${userResponses.usage}`
+  };
+
+  if (userResponses.contributing !== '') {`
+  
+  ##CONTRIBUTING 
+  
+  ${userResponses.contributing}`
+  };
+
+  if (userResponses.tests !== '') {
+    draftReadMe +=`
+    
+    ## TESTS
+    
+    ${userResponses.tests}`
+  };
+
+  // connect userResponses to license section
+  draftReadMe +=`
+  
+  ## LICENSE
+  
+  ${userResponses.license}`;
+
+  // Questions? section
+  let draftDeveloper = `
+  
+  ---------------------
+  
+  ## Questions?
+  
+  For any questions, please contact me with the information below:
+  
+  Github: [@${userInfo.login}](${userInfo.url})
+  `;
+
+  if (userInfo.email !== null) {
+    draftDeveloper += `
+    Email: ${userInfo.email}`
+  };
+
+  // add developer section to readne
+  draftReadMe += draftDeveloper;
+
+  return draftReadMe;
+
 }
 
 module.exports = generateMarkdown;
