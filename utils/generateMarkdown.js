@@ -2,13 +2,17 @@ function generateMarkdown(userResponses, userInfo) {
 
   let draftTable = `## Table of Contents`;
 
-  if (userResponses.installation !== '') { draftTable += `[Installation](#installation)` };
+  if (userResponses.installation !== '') { draftTable += `
+  * [Installation](#installation)` };
 
-  if (userResponses.usage !== '') { draftTable += `[Usage](#usage)` };
+  if (userResponses.usage !== '') { draftTable += `
+  * [Usage](#usage)` };
 
-  if (userResponses.contributing !== '') { draftTable += `[Contributing](#contributing)` };
+  if (userResponses.contributing !== '') { draftTable += `
+  * [Contributing](#contributing)` };
 
-  if (userResponses.tests !== '') { draftTable += `[tests](#tests)` };
+  if (userResponses.tests !== '') { draftTable += `
+  * [tests](#tests)` };
 
   // create title and description
   //generate badges
