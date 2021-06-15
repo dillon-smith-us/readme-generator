@@ -9,6 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "inquirer": "^6.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dillon-smith-us/readme-generator.git"
+  },
+  "homepage": "https://github.com/dillon-smith-us/readme-generator#readme"
 }
