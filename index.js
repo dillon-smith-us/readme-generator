@@ -104,17 +104,17 @@ function writeToFile(fileName, data) {
 // function to initialize app
 async function init() {
     try {
-        const userResponses = await inquirer.prompt(questions);
-        console.log("your responses: ", userResponses);
+        const userAnswers = await inquirer.prompt(questions);
+        console.log("your responses: ", userAnswers);
         console.log("your responses have been logged. Calling github...");
 
         // referencing api.js 
-        const userInfo = await api.getUser(userResponses);
+        const userInfo = await api.getUser(userAnswers);
         console.log("your github user info: ", userInfo);
 
         // pass inquirer data and api data down to markdown
         console.log("generating markdown file")
-        const markdown = generateMarkdown(userResponses, userInfo);
+        const markdown = generateMarkdown(userAnswers, userInfo);
         console.log(markdown);
 
         // write markdown

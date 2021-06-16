@@ -1,29 +1,29 @@
-function generateMarkdown(userResponses, userInfo) {
+function generateMarkdown(userAnswers, userInfo) {
 
   let tableOC = `## Table of Contents`;
 
-  if (userResponses.installation !== '') { tableOC += `
+  if (userAnswers.installation !== '') { tableOC += `
   * [Installation](#installation)` };
 
-  if (userResponses.usage !== '') { tableOC += `
+  if (userAnswers.usage !== '') { tableOC += `
   * [Usage](#usage)` };
 
-  if (userResponses.contributing !== '') { tableOC += `
+  if (userAnswers.contributing !== '') { tableOC += `
   * [Contributing](#contributing)` };
 
-  if (userResponses.tests !== '') { tableOC += `
+  if (userAnswers.tests !== '') { tableOC += `
   * [tests](#tests)` };
 
   // create title and description
   //generate badges
   let draftReadMe = 
-  `# ${userResponses.title}
-  ![badge](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repository}?style=flat&logo=appveyor)
+  `# ${userAnswers.title}
+  ![badge](https://img.shields.io/github/languages/top/${userAnswers.username}/${userAnswers.repository}?style=flat&logo=appveyor)
   
   
   ## DESCRIPTION 
   
-  ${userResponses.description}
+  ${userAnswers.description}
   `
 
   draftReadMe += tableOC;
@@ -31,45 +31,45 @@ function generateMarkdown(userResponses, userInfo) {
   draftReadMe += `
   * [license](#license)`;
 
-  if (userResponses.installation !== '') {
+  if (userAnswers.installation !== '') {
 
     draftReadMe +=`
     
     ## INSTALLATION 
     
-    ${userResponses.installation}`
+    ${userAnswers.installation}`
   };
 
-  if (userResponses.usage !== '') {
+  if (userAnswers.usage !== '') {
 
     draftReadMe +=`
     
     ## USAGE
     
-    ${userResponses.usage}`
+    ${userAnswers.usage}`
   };
 
-  if (userResponses.contributing !== '') {`
+  if (userAnswers.contributing !== '') {`
   
     ##CONTRIBUTING 
   
-  ${userResponses.contributing}`
+  ${userAnswers.contributing}`
   };
 
-  if (userResponses.tests !== '') {
+  if (userAnswers.tests !== '') {
     draftReadMe +=`
     
     ## TESTS
     
-    ${userResponses.tests}`
+    ${userAnswers.tests}`
   };
 
-  // connect userResponses to license section
+  // connect userAnswers to license section
   draftReadMe +=`
   
     ## LICENSE
   
-  ${userResponses.license}`;
+  ${userAnswers.license}`;
 
   // Questions? section
   let draftDeveloper = `
