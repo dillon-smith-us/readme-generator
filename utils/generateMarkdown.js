@@ -44,14 +44,14 @@ function generateMarkdown(userResponses, userInfo) {
 
     draftReadMe +=`
     
-    ##USAGE
+    ## USAGE
     
     ${userResponses.usage}`
   };
 
   if (userResponses.contributing !== '') {`
   
-  ##CONTRIBUTING 
+    ##CONTRIBUTING 
   
   ${userResponses.contributing}`
   };
@@ -67,7 +67,7 @@ function generateMarkdown(userResponses, userInfo) {
   // connect userResponses to license section
   draftReadMe +=`
   
-  ## LICENSE
+    ## LICENSE
   
   ${userResponses.license}`;
 
@@ -76,7 +76,7 @@ function generateMarkdown(userResponses, userInfo) {
   
   ---------------------
   
-  ## Questions?
+    ## Questions?
   
   For any questions, please contact me with the information below:
   

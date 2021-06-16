@@ -5,13 +5,15 @@ const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// internal npm
 const api = require('./utils/api')
-// TODO: Create an array of questions for user input
+
+// creates an array of questions for user input
 const questions = [
     {
         type: 'input',
         name: 'username',
-        message: 'Enter github username',
+        message: 'enter github username',
 
         validate: function (answer) {
             if (answer.length < 1) {
@@ -36,7 +38,7 @@ const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'Enter the title of your project',
+        message: 'enter the title of your project',
         validate: function (answer) {
             if (answer.length < 1) {
                 return console.log("you must enter the title of your project");
@@ -66,7 +68,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Enter your project instructions and examples of it in use for Usage section',
+        message: 'enter your project instructions and examples of it in use for Usage section',
     },
 
     {
@@ -89,38 +91,38 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) {
             return console.log(err);
         }
-        console.log('Your README file has been created!')
+        console.log('Your README file has been created! Check exampleREADME.md!')
     });
 }
 
-// TODO: Create a function to initialize app
+// function to initialize app
 async function init() {
     try {
         const userResponses = await inquirer.prompt(questions);
         console.log("your responses: ", userResponses);
         console.log("your responses have been logged. Calling github...");
 
-        // referencing API.js
+        // referencing api.js 
         const userInfo = await api.getUser(userResponses);
         console.log("your github user info: ", userInfo);
 
-        //pass inquirer data and api data down to markdown
+        // pass inquirer data and api data down to markdown
         console.log("generating markdown file")
         const markdown = generateMarkdown(userResponses, userInfo);
         console.log(markdown);
 
-        //write markdown
+        // write markdown
         await writeFileAsync('exampleREADME.md', markdown);
     } catch (error) {
         console.log(error);
     }
 }
 
-// Function call to initialize app
+// another function call to initialize app
 init();
