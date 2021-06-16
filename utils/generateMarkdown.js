@@ -1,17 +1,17 @@
 function generateMarkdown(userResponses, userInfo) {
 
-  let draftTable = `## Table of Contents`;
+  let tableOC = `## Table of Contents`;
 
-  if (userResponses.installation !== '') { draftTable += `
+  if (userResponses.installation !== '') { tableOC += `
   * [Installation](#installation)` };
 
-  if (userResponses.usage !== '') { draftTable += `
+  if (userResponses.usage !== '') { tableOC += `
   * [Usage](#usage)` };
 
-  if (userResponses.contributing !== '') { draftTable += `
+  if (userResponses.contributing !== '') { tableOC += `
   * [Contributing](#contributing)` };
 
-  if (userResponses.tests !== '') { draftTable += `
+  if (userResponses.tests !== '') { tableOC += `
   * [tests](#tests)` };
 
   // create title and description
@@ -26,7 +26,7 @@ function generateMarkdown(userResponses, userInfo) {
   ${userResponses.description}
   `
 
-  draftReadMe += draftTable;
+  draftReadMe += tableOC;
 
   draftReadMe += `
   * [license](#license)`;
