@@ -23,7 +23,8 @@ function generateMarkdown(userResponses, userInfo) {
   
   ## DESCRIPTION 
   
-  ${userResponses.description}`
+  ${userResponses.description}
+  `
 
   draftReadMe += draftTable;
 
