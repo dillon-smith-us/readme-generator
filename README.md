@@ -16,7 +16,7 @@
     
     ## INSTALLATION 
     
-    Provided user has visual studio code, node, and a terminal of some sort, the user will confirm inquirer and axios are installed ("npm init" "npm i inquirer", "npm i axios"). Then the user will run "node index" in their terminal to begin the prompts for the generation process. User will enter data according to their github repository's data. User will finish answering, and exampleREADME.md will populate with the user's inputs.
+    Provided user has visual studio code, node, and a terminal of some sort, the user will confirm inquirer and axios are installed (`npm init`, `npm i inquirer`, `npm i axios`). Then the user will run `node index` in their terminal to begin the prompts for the generation process. User will enter data according to their github repository's data. User will finish answering, and exampleREADME.md will populate with the user's inputs.
     
     ## USAGE
     
